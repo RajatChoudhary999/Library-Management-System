@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Library Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	
+	<div class="container-fluid ">
+		
+				<div class = "row pt-2" style="background-color: #e3f2fd;">
+				
+				
+						<div class="col-5">
+							
+						</div>
+						
+						
+						<div class="col-5 ">
+							<h4>Library Management System</h4>
+						</div>
+						
+						
+						
+						<div class="col-2">
+			                    
+			                        <a th:href = "@{/}" class="btn btn-primary btn-sm mb-3 pl-4 pr-4">Logout</a>
+			                    
+			            </div>
+					
+				</div>
+		</div>
+		
+		
+	
+	<div class= "container mt-4 ">
+		
+		<div class = "row">
+		
+		
+			<div class="col-4">
+				
+			</div>
+			
+			
+			<div class="col-4">
+				<h1>Book Listing</h1>
+			</div>
+			
+			
+			
+			<div class="col-4">
+                    
+                        <a th:href = "@{/books/new}" class="btn btn-primary btn-sm mb-3 mt-3">Add a book</a>
+                    
+                </div>
+			
+		</div>
+		
+		
+		
+		<table class="table table-stripped table-bordered">
+			
+			<thead class="thead-light">
+				<tr>
+					<th>Book Code</th>
+					<th>Book Name</th>
+					<th>Author</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "book: ${books}">
+					<td th:text = "${book.bookCode}"></td>
+					<td th:text = "${book.bookName}"></td>
+					<td th:text = "${book.bookAuthor}"></td>
+					<td>
+						<a th:href = "@{/books/edit/{id}(id=${book.id})}"
+						class = "btn btn-primary">Edit</a>
+						
+						<a th:href = "@{/books/{id}(id=${book.id})}"
+						class = "btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+			
+		</table>
+	
+	</div>
+</body>
+</html>

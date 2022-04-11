@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Library Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-fluid ">
+		
+				<div class = "row pt-2" style="background-color: #e3f2fd;">
+				
+				
+						<div class="col-5">
+							
+						</div>
+						
+						
+						<div class="col-5 ">
+							<h4>Library Management System</h4>
+						</div>
+						
+						
+						
+						<div class="col-2">
+			                    
+			                        <a th:href = "@{/}" class="btn btn-primary btn-sm mb-3 pl-4 pr-4">Logout</a>
+			                    
+			            </div>
+					
+				</div>
+		</div>
+
+	<div class = "container">
+	
+		 <div class= "row mt-5">
+		 
+		 	<div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+		 		<h1 class = "text-center">Update Book</h1>
+		 		
+		 		<div class = "card-body">
+		 			
+		 			<form th:action="@{/books/{id} (id=${book.id})}" th:object = "${book}" method = "POST">
+		 				
+		 				<div class="form-group">
+		 					<label>Book Code</label>
+		 					<input
+		 					type = "number"
+		 					name = "bookCode"
+		 					th:field = "*{bookCode}"
+		 					class = "form-control"
+		 					placeholder = "Enter Book Code"
+		 					required
+		 					/>
+		 				</div>
+		 				
+		 				<div class="form-group">
+		 					<label>Book Name</label>
+		 					<input
+		 					type = "text"
+		 					name = "bookName"
+		 					th:field = "*{bookName}"
+		 					class = "form-control"
+		 					placeholder = "Enter Book Name"
+		 					required
+		 					/>
+		 				</div>
+		 				
+		 				<div class="form-group">
+		 					<label>Book Author</label>
+		 					<input
+		 					type = "text"
+		 					name = "bookAuthor"
+		 					th:field = "*{bookAuthor}"
+		 					class = "form-control"
+		 					placeholder = "Enter Book Author"
+		 					required
+		 					/>
+		 				</div>
+		 				
+		 				<div class = "box-footer">
+		 					<button type="submit" class = "btn btn-primary">Submit</button>
+		 					<a th:href = "@{/books}" class = "btn btn-danger">Cancel</a>
+		 					
+		 				</div>
+		 				
+		 				
+		 				
+						
+		 			</form>
+		 			
+		 		</div>
+		 	</div>
+		 	
+		 </div>
+	</div>
+	
+</body>
+</html>
